@@ -1,0 +1,5 @@
+{
+  "name": "Plant Monitor V2",
+  "description": "A plant health monitoring application that uses AI to identify plants, assess their health, detect diseases, and measure physical dimensions from uploaded images.",
+  "requestFramePermissions": []
+}

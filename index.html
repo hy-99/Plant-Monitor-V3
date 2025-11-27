@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlantGuard V6</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'primary': '#4a7c59',
+              'primary-dark': '#3b6347',
+              'secondary': '#f8f9fa',
+              'background': '#e4eee9', // Sage green background
+              'text-primary': '#1e293b',
+              'text-secondary': '#475569',
+            },
+            fontFamily: {
+                sans: ['Nunito', 'sans-serif'],
+            },
+            keyframes: {
+              'fade-in': {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+               'fade-in-up': {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+            },
+            animation: {
+              'fade-in': 'fade-in 0.5s ease-out',
+              'fade-in-up': 'fade-in-up 0.5s ease-out',
+            }
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.0/client",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0"
+  }
+}
+</script>
+<style>
+  body {
+    background-color: #e4eee9; /* Sage green */
+    font-family: 'Nunito', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+  }
+  .deco-plant {
+    content: '';
+    position: fixed;
+    z-index: -1;
+    opacity: 0.1;
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  #deco-1 {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path fill="%234A7C59" d="M100 0C44.8 0 0 44.8 0 100s44.8 100 100 100 100-44.8 100-100S155.2 0 100 0zm0 181.2c-44.8 0-81.2-36.5-81.2-81.2S55.2 18.8 100 18.8s81.2 36.5 81.2 81.2-36.5 81.2-81.2 81.2zM87.5 50c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25zm25 75c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25z"/></svg>');
+    bottom: -80px;
+    left: -80px;
+    width: 400px;
+    height: 400px;
+    transform: rotate(-15deg);
+  }
+
+  #deco-2 {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path fill="%234A7C59" d="M162.5 62.5c0 34.5-22.1 62.5-62.5 62.5S37.5 97 37.5 62.5C37.5 28 59.6 0 100 0s62.5 28 62.5 62.5zm-31.3-15.6c-4.3 0-8.2 2.1-10.6 5.6-2.4-3.5-6.3-5.6-10.6-5.6s-8.2 2.1-10.6 5.6c-2.4-3.5-6.3-5.6-10.6-5.6-8.6 0-15.6 7-15.6 15.6v3.1c0 8.6 7 15.6 15.6 15.6s15.6-7 15.6-15.6v-3.1c0-4.3 2.1-8.2 5.6-10.6 3.5 2.4 5.6 6.3 5.6 10.6v3.1c0 8.6 7 15.6 15.6 15.6s15.6-7 15.6-15.6v-3.1c0-8.6-7-15.6-15.6-15.6z"/></svg>');
+    top: -100px;
+    right: -100px;
+    width: 450px;
+    height: 450px;
+    transform: rotate(20deg);
+  }
+
+</style>
+</head>
+  <body class="bg-background font-sans">
+    <div id="deco-1" class="deco-plant"></div>
+    <div id="deco-2" class="deco-plant"></div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
